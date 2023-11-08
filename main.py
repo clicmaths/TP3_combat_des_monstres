@@ -5,19 +5,24 @@ point_vie = "20"
 question = "5"
 while question != "4" or point_vie > "0":
     point_vie = "20"
-    force_adversaire = random.randint(1,5)
-    score_dé = random.randint(1,6)
+    force_adversaire = random.randint(1,5) + random.randint(1,6)
+    score_dé = random.randint(1,6) + random.randint(1,6)
+    combat_statut = "-"
+    victoires_consecutives = "0"
+    question = input("niveau de monstre " + str(force_adversaire) +
+                     "\n1.Combattre cet adversaire"
+                     "\n2.Contourner cet adversaire et aller ouvrir une autre porte"
+                     "\n3.Afficher les règles du jeu"
+                     "\n4.Quitter la partie\n")
 
-    question = input("niveau de monstre "+str(force_adversaire)+
-                    "\n1.Combattre cet adversaire"
-                    "\n2.Contourner cet adversaire et aller ouvrir une autre porte"
-                    "\n3.Afficher les règles du jeu"
-                    "\n4.Quitter la partie\n")
+
     if question=="1":
         print("Adversaire : "+str(force_adversaire)+
-              "Force de l’adversaire : "+str(force_adversaire)+
-              "Niveau de vie de l’usager : niveau_vie"
-              "Combat numero_combat : nombre_victoires vs nombre_defaites")
+              " Force de l’adversaire : "+str(force_adversaire)+
+              " Niveau de vie de l’usager : "+str(point_vie)+
+              " Dernier combat : "+str(combat_statut)+
+              " Nombre de victoires consécutives : "+str(victoires_consecutives ))
+
     elif question=="2":
         print("1")
     elif question=="3":
