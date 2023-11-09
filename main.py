@@ -4,11 +4,9 @@ import random
 point_vie = "20"
 question = "5"
 while question != "4" or point_vie > "0":
-    point_vie = "20"
-    force_adversaire = random.randint(1,5) + random.randint(1,6)
-    score_dé = random.randint(1,6) + random.randint(1,6)
-    combat_statut = "-"
-    victoires_consecutives = "0"
+    force_adversaire = random.randint(1, 5) + random.randint(1, 6)
+    score_de = random.randint(1, 6) + random.randint(1, 6)
+    numero_combat = 0
     question = input("niveau de monstre " + str(force_adversaire) +
                      "\n1.Combattre cet adversaire"
                      "\n2.Contourner cet adversaire et aller ouvrir une autre porte"
@@ -17,12 +15,35 @@ while question != "4" or point_vie > "0":
 
 
     if question=="1":
-        print("Adversaire : "+str(force_adversaire)+
-              " Force de l’adversaire : "+str(force_adversaire)+
-              " Niveau de vie de l’usager : "+str(point_vie)+
-              " Dernier combat : "+str(combat_statut)+
-              " Nombre de victoires consécutives : "+str(victoires_consecutives ))
-
+        point_vie = "20"
+        victoire = 0
+        defaite = 0
+        victoires_consecutives = 0
+        combat_statut = ""
+        print( "Force de l’adversaire : "+str(force_adversaire)+
+              "\nNiveau de vie de l’usager : "+str(point_vie)+
+              "\nDernier combat : "+str(combat_statut)+
+              "\nNuméro combat : "+str(numero_combat)+
+              "\nNombre de victoires consécutives : "+str(victoires_consecutives)+
+              "\nLancer du dé: " +str(score_de))
+        if score_de > force_adversaire:
+            victoire =+ 1
+            victoires_consecutives =+ 1
+            combat_statut = "victoire"
+            print("",victoire,"victoire\n"
+                  "",defaite,"défaite\n"
+                  "",victoires_consecutives,"victoires consécutives\n")
+            numero_combat = numero_combat=+1
+        else:
+            defaite =+ 1
+            victoires_consecutives = 0
+            combat_statut = "défaite"
+            point_vie = point_vie =- force_adversaire
+            print("", victoire, "victoire\n"
+                  "", defaite, "défaite\n"
+                  "", victoires_consecutives, "victoires consécutives\n")
+            numero_combat = numero_combat = +1
+            point_vie =- point_vie - force_adversaire
     elif question=="2":
         print("1")
     elif question=="3":
