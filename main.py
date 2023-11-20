@@ -17,7 +17,6 @@ while question != "4" or point_vie > 0:
                      "\n3.Afficher les règles du jeu"
                      "\n4.Quitter la partie\n")
 
-
     if question=="1":
         combat_statut = ""
         print( "Force de l’adversaire : "+str(force_adversaire)+
@@ -26,6 +25,9 @@ while question != "4" or point_vie > 0:
               "\nNuméro combat : "+str(numero_combat)+
               "\nNombre de victoires consécutives : "+str(victoires_consecutives)+
               "\nLancer du dé: " +str(score_de))
+        if victoire == 3:
+            force_adversaire >= score_de
+
         if score_de > force_adversaire:
             victoire += 1
             victoires_consecutives += 1
