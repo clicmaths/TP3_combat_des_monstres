@@ -11,6 +11,8 @@ combat_statut = ""
 while point_vie > 0:
     score_de = random.randint(1, 6) + random.randint(1, 6)
     force_adversaire = random.randint(1, 5) + random.randint(1, 6)
+    if victoires_consecutives == 3:
+        force_adversaire = 11
     numero_combat = 0
     question = input("niveau de monstre " + str(force_adversaire) +
                      "\n1.Combattre cet adversaire"
@@ -26,7 +28,7 @@ while point_vie > 0:
               "\nNombre de victoires consécutives : "+str(victoires_consecutives)+
               "\nLancer du dé: " +str(score_de))
         if victoires_consecutives == 3:
-            force_adversaire > score_de
+            force_adversaire = 11
 
         if score_de > force_adversaire:
             victoire += 1
