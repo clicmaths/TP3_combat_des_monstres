@@ -7,9 +7,10 @@ defaite = 0
 victoires_consecutives = 0
 point_vie = 20
 question = "5"
-while question != "4" or point_vie > 0:
-    force_adversaire = random.randint(1, 5) + random.randint(1, 6)
+combat_statut = ""
+while point_vie > 0:
     score_de = random.randint(1, 6) + random.randint(1, 6)
+    force_adversaire = random.randint(1, 5) + random.randint(1, 6)
     numero_combat = 0
     question = input("niveau de monstre " + str(force_adversaire) +
                      "\n1.Combattre cet adversaire"
@@ -18,25 +19,25 @@ while question != "4" or point_vie > 0:
                      "\n4.Quitter la partie\n")
 
     if question=="1":
-        combat_statut = ""
         print( "Force de l’adversaire : "+str(force_adversaire)+
               "\nNiveau de vie de l’usager : "+str(point_vie)+
               "\nDernier combat : "+str(combat_statut)+
               "\nNuméro combat : "+str(numero_combat)+
               "\nNombre de victoires consécutives : "+str(victoires_consecutives)+
               "\nLancer du dé: " +str(score_de))
-        if victoire == 3:
-            force_adversaire >= score_de
+        if victoires_consecutives == 3:
+            force_adversaire > score_de
 
         if score_de > force_adversaire:
             victoire += 1
             victoires_consecutives += 1
             combat_statut = "victoire"
+            point_vie += force_adversaire
             print("",victoire,"victoire\n"
                   "",defaite,"défaite\n"
                   "",victoires_consecutives,"victoires consécutives\n")
             numero_combat += 1
-        else:
+        elif score_de <= force_adversaire:
             defaite += 1
             victoires_consecutives = 0
             combat_statut = "défaite"
@@ -45,7 +46,6 @@ while question != "4" or point_vie > 0:
                   "", defaite, "défaite\n"
                   "", victoires_consecutives, "victoires consécutives\n")
             numero_combat += 1
-            point_vie -= force_adversaire
     elif question=="2":
         point_vie -= 1
         print("vous avez perdu un point de vie\n"
@@ -66,5 +66,5 @@ while question != "4" or point_vie > 0:
 
 
 
-    elif question=="4" or point_vie<=0:
+    elif question=="4":
         exit()
