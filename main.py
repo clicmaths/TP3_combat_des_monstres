@@ -1,7 +1,6 @@
-#variable
 import random
 
-
+# variables
 victoire = 0
 defaite = 0
 victoires_consecutives = 0
