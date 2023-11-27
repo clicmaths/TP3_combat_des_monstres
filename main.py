@@ -8,9 +8,14 @@ victoires_consecutives = 0
 point_vie = 20
 question = "5"
 combat_statut = ""
+
+# boucle pour le jeu
 while point_vie > 0:
+    # lancé du dé qui détermine l'attaque du joueur
     score_de = random.randint(1, 6) + random.randint(1, 6)
+    # valeur qui détermine l'attaque du monstre
     force_adversaire = random.randint(1, 5) + random.randint(1, 6)
+    # augmentation de difficulté
     if victoires_consecutives == 3:
         force_adversaire = 11
     numero_combat = 0
@@ -20,6 +25,7 @@ while point_vie > 0:
                      "\n3.Afficher les règles du jeu"
                      "\n4.Quitter la partie\n")
 
+    # combattre le monstre
     if question=="1":
         print( "Force de l’adversaire : "+str(force_adversaire)+
               "\nNiveau de vie de l’usager : "+str(point_vie)+
@@ -30,6 +36,7 @@ while point_vie > 0:
         if victoires_consecutives == 3:
             force_adversaire = 11
 
+        # victoire
         if score_de > force_adversaire:
             victoire += 1
             victoires_consecutives += 1
@@ -39,6 +46,8 @@ while point_vie > 0:
                   "",defaite,"défaite\n"
                   "",victoires_consecutives,"victoires consécutives\n")
             numero_combat += 1
+
+        # défaite
         elif score_de <= force_adversaire:
             defaite += 1
             victoires_consecutives = 0
@@ -48,10 +57,14 @@ while point_vie > 0:
                   "", defaite, "défaite\n"
                   "", victoires_consecutives, "victoires consécutives\n")
             numero_combat += 1
+
+    # ouvrir une autre porte
     elif question=="2":
         point_vie -= 1
         print("vous avez perdu un point de vie\n"
               "vous avez ouvert une autre porte. point de vie:", point_vie,)
+
+    # afficher les règles du jeu
     elif question=="3":
         print( " L’idée est la suivante : Le but de la partie est d’accumuler le plus possible de victoires."
                "\nElles s’additionnent en vainquant des monstres."
@@ -67,6 +80,6 @@ while point_vie > 0:
                "\nL’usager commence la partie avec un pactole de points de vie.\n")
 
 
-
+    # quitter
     elif question=="4":
         exit()
